@@ -35,6 +35,7 @@ import android.content.DialogInterface;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.text.Html;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -165,7 +166,7 @@ public class Notification extends CordovaPlugin {
             public void run() {
 
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                dlg.setMessage(message);
+                dlg.setMessage(Html.fromHtml(message));
                 dlg.setTitle(title);
                 dlg.setCancelable(true);
                 dlg.setPositiveButton(buttonLabel,
@@ -205,7 +206,7 @@ public class Notification extends CordovaPlugin {
         Runnable runnable = new Runnable() {
             public void run() {
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                dlg.setMessage(message);
+                dlg.setMessage(Html.fromHtml(message));
                 dlg.setTitle(title);
                 dlg.setCancelable(true);
 
@@ -288,7 +289,7 @@ public class Notification extends CordovaPlugin {
                 final EditText promptInput =  new EditText(cordova.getActivity());
                 promptInput.setHint(defaultText);
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-                dlg.setMessage(message);
+                dlg.setMessage(Html.fromHtml(message));
                 dlg.setTitle(title);
                 dlg.setCancelable(true);
                 
@@ -392,7 +393,7 @@ public class Notification extends CordovaPlugin {
             public void run() {
                 notification.spinnerDialog = createProgressDialog(cordova); // new ProgressDialog(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 notification.spinnerDialog.setTitle(title);
-                notification.spinnerDialog.setMessage(message);
+                notification.spinnerDialog.setMessage(Html.fromHtml(message));
                 notification.spinnerDialog.setCancelable(true);
                 notification.spinnerDialog.setIndeterminate(true);
                 notification.spinnerDialog.setOnCancelListener(
